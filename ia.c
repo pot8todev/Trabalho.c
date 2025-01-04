@@ -51,8 +51,6 @@ int elogioList(char *pergunta){
    }
     
 }
-
-
 int xingamentosList(char *pergunta){
     if (strstr(pergunta, "ruim") != NULL || 
     strstr(pergunta, "merda") != NULL ||
@@ -76,8 +74,8 @@ int xingamentosList(char *pergunta){
    }
     
 }
-// Função pra receber uma palavra e transformar em chacacters usáveis
 
+// Função pra receber uma palavra e transformar characteres especiais para characteres ascII
 void charsensivel(char *str) {
     char *weird[] = {"á", "à", "ä", "â","ã", "é", "è", "ë", "ê", 
                      "í", "ì", "ï", "î", "ó", "ò", "ö", "ô","õ"
@@ -227,7 +225,6 @@ int IA_tutorFutebol(char pergunta[])
                 }
                 j=0;
                 printf("GOOOOOOOOOO\n");
-                usleep(500000);                
             
             
         }
@@ -391,6 +388,7 @@ int main() {
         // Processar a pergunta
         if (IA_tutorFutebol(pergunta) == 1){
             break;
+
         }
     }
 
