@@ -29,7 +29,7 @@ int main() {
     printf("Pergunte algo sobre futebol e seus sub-tópicos (ex.: 'time, jogador, campeonato, regras') ou digite 'sair' para encerrar:\n");
     
     // Loop para interação contínua
-    while (1) 
+    while (1)  //fazer o quit mais genrérico
     {
         printf("\nSua pergunta: ");
 
@@ -105,10 +105,18 @@ char *questionList(char *pergunta){
     }
      //lista de strings
     
-    char *questionlist[]={ "quando", "qual", "como", "onde",NULL};
-    for (int i = 0; questionlist[i] != NULL ; i++) {
-        if (strstr(pergunta, questionlist[i]) != NULL){
-            return questionlist[i];
+    char *questionList[]={ "onde","quando", "qual" ,"quais", "como", "quanto", "quantos",NULL};
+    for (int i = 0; questionList[i] != NULL ; i++) {
+        if (strstr(pergunta, questionList[i]) != NULL){
+            //algumas redundancias do plural
+            if ( strcmp(questionList[i], "qual") == 0 || strcmp(questionList[i], "qual") == 0) {  
+                return "qual"; 
+            }
+            if ( strcmp(questionList[i], "quanto") == 0 || strcmp(questionList[i], "quantos") == 0) {  
+                return "quantos"; 
+            }
+            
+            return questionList[i];
         }
     }
     return NULL; // if the code reads here, than it found nothing
@@ -388,7 +396,7 @@ int IA_tutorFutebol(char pergunta[]) {
     else if(questionList(pergunta) != NULL){
         if(strcmp(questionList(pergunta), "o que") == 0){
             if(strstr(pergunta, "bola") != NULL){
-                printf(" um objeto esférico, necessário para que as partidas de futebol aconteçam");
+            printf(" um objeto esférico, necessário para que as partidas de futebol aconteçam");
             } else if(strstr(pergunta, "jogador") != NULL){
             printf("\nprofissional pago para esta em campo e marcar o maximo de gols possível\n");
             } else if(strstr(pergunta, "gol") != NULL){
@@ -407,49 +415,80 @@ int IA_tutorFutebol(char pergunta[]) {
             printf("\nconjunto de pessoas que observam o jogo, onde desejam ativamente pelo sucesso de um deles especifico, e a destruição completa dos adiversários\n");
             }
             else if(strstr(pergunta, "zagueiro central") != NULL){
-            printf("\nFica no centro da defesa, tentando impedir que os atacantes adversários marquem gols. Trabalha junto com o outro zagueiro para proteger a área do goleiro.\n");
-        }else if(strstr(pergunta, "lateral direito") != NULL){
-            printf("\n\n");
-        }else if(strstr(pergunta, "zagueiro lateral") != NULL){
-            printf("\nSimilar aos laterais, mas com funções de defesa mais centradas. São mais comuns em esquemas táticos específicos, como no futebol de linha de 3 zagueiros.\n");
-        }else if(strstr(pergunta, "lateral") != NULL){
-            printf("\nFicam nas laterais da defesa, defendendo as investidas do time adversário pelas linhas laterais do campo. Eles também podem apoiar o ataque, cruzando bolas para a área.\n");
-        }else if(strstr(pergunta, "volante") != NULL){
-            printf("\n\n");
-        }else if(strstr(pergunta, "campista") != NULL || strstr(pergunta, "organizador") != NULL) {
-            printf("\n Controla o meio-campo, distribuindo passes e criando jogadas ofensivas. Eles têm boa visão de jogo e fazem a transição entre defesa e ataque. \n");
-        }else if(strstr(pergunta, "armador") != NULL){
-            printf("\nFica mais perto do ataque e tem a função de criar jogadas ofensivas, com passes que desorganizam a defesa adversária e geram oportunidades de gol.\n");
-        }else if(strstr(pergunta, "ponta") != NULL){
-            printf("\nJoga nas laterais do ataque, utilizando a velocidade para correr ao longo da linha e cruzar para a área ou cortar para o centro e finalizar a gol.\n");
-        }else if(strstr(pergunta, "centroavante") != NULL || (strstr(pergunta, "pivo") != NULL)){
-            printf("\nA principal função é marcar gols. Fica na posição central no ataque e tenta finalizar as jogadas criadas pelos meio-campistas ou laterais. É o jogador mais focado no ataque.\n");
-        }else if(strstr(pergunta, "palavra") != NULL){
-            printf("\nFica mais próximo do centroavante, mas com liberdade para se movimentar e criar jogadas ofensivas. Pode ajudar a distribuir passes ou concluir jogadas.\n");
-        }else if(strstr(pergunta, "") != NULL){
-            printf("\n\n");
-        }else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-        }else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-        }else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-        }
+        printf("\nFica no centro da defesa, tentando impedir que os atacantes adversários marquem gols. Trabalha junto com o outro zagueiro para proteger a área do goleiro.\n");
+            }else if(strstr(pergunta, "lateral direito") != NULL){
+                printf("\n\n");
+            }else if(strstr(pergunta, "zagueiro lateral") != NULL){
+                printf("\nSimilar aos laterais, mas com funções de defesa mais centradas. São mais comuns em esquemas táticos específicos, como no futebol de linha de 3 zagueiros.\n");
+            }else if(strstr(pergunta, "lateral") != NULL){
+                printf("\nFicam nas laterais da defesa, defendendo as investidas do time adversário pelas linhas laterais do campo. Eles também podem apoiar o ataque, cruzando bolas para a área.\n");
+            }else if(strstr(pergunta, "volante") != NULL){
+                printf("\n\n");
+            }else if(strstr(pergunta, "campista") != NULL || strstr(pergunta, "organizador") != NULL) {
+                printf("\n Controla o meio-campo, distribuindo passes e criando jogadas ofensivas. Eles têm boa visão de jogo e fazem a transição entre defesa e ataque. \n");
+            }else if(strstr(pergunta, "armador") != NULL){
+                printf("\nFica mais perto do ataque e tem a função de criar jogadas ofensivas, com passes que desorganizam a defesa adversária e geram oportunidades de gol.\n");
+            }else if(strstr(pergunta, "ponta") != NULL){
+                printf("\nJoga nas laterais do ataque, utilizando a velocidade para correr ao longo da linha e cruzar para a área ou cortar para o centro e finalizar a gol.\n");
+            }else if(strstr(pergunta, "centroavante") != NULL || (strstr(pergunta, "pivo") != NULL)){
+                printf("\nA principal função é marcar gols. Fica na posição central no ataque e tenta finalizar as jogadas criadas pelos meio-campistas ou laterais. É o jogador mais focado no ataque.\n");
+            }else if(strstr(pergunta, "palavra") != NULL){
+                printf("\nFica mais próximo do centroavante, mas com liberdade para se movimentar e criar jogadas ofensivas. Pode ajudar a distribuir passes ou concluir jogadas.\n");
+            }else if(strstr(pergunta, "") != NULL){
+                printf("\n\n");
+            }else if(strstr(pergunta, "palavra") != NULL){
+                printf("\n\n");
+            }else if(strstr(pergunta, "palavra") != NULL){
+                printf("\n\n");
+            }else if(strstr(pergunta, "palavra") != NULL){
+                printf("\n\n");
+            
+            }
         }
         else if (strcmp(questionList(pergunta), "quando")){
-                if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
+                if(strstr(pergunta, "regatas") != NULL){
+            printf("\n Fundado no bairro do Flamengo[nota 1] para disputas do esporte remo em 17 de novembro de 1895,[2][11] tornou-se um dos clubes mais bem-sucedidos e populares do esporte brasileiro\n");
             }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
+            else if(strstr(pergunta, "titulo") != NULL){
+            printf("\n o Flamengo é, por decisão judicial, e em seguida, pela Confederação Brasileira de Futebol (CBF), oficialmente detentor de sete títulos do Campeonato Brasileiro  \n");
             }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
+            else if(strstr(pergunta, "titulo") != NULL){
+                if (strstr(pergunta, "primeiro") != NULL)
+                {
+                    printf("oficialmente, flamengo conseguiu seu primeiro título em 1980");
+                }if (strstr(pergunta, "segundo") != NULL)
+                {
+                    
+                    printf("oficialmente, flamengo conseguiu seu primeiro título em 1982");
+
+                }if (strstr(pergunta, "terceiro") != NULL)
+                {
+                    printf("oficialmente, flamengo conseguiu seu primeiro título em 1983");
+                }if (strstr(pergunta, "quarto") != NULL)
+                {
+                    printf("oficialmente, flamengo conseguiu seu primeiro título em 1992");
+                }if (strstr(pergunta, "quinto") != NULL)
+                {
+                    printf("oficialmente, flamengo conseguiu seu primeiro título em 2009");
+                }if (strstr(pergunta, "sexto") != NULL)
+                {
+                    printf("oficialmente, flamengo conseguiu seu primeiro título em 2019");
+                }if (strstr(pergunta, "setmo") != NULL || strstr(pergunta, "ultimo") != NULL )
+                {
+                    printf("oficialmente, flamengo conseguiu seu primeiro título em 2020");
+                }
+            
+            printf("\n \n");
             }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
+            else if(strstr(pergunta, "libertadores") != NULL ){
+                printf("\nA primeira aconteceu em 1981 sob o comando de Zico, o maior ídolo do clube. Em Montevidéu\n");
+                if (strstr(pergunta, "ultima") != NULL|| strstr(pergunta, "segunda") != NULL)
+                {
+                    printf("\n a ultima vez que flamengo ganhou a libertadores foi em 2019\n");
+                    
+                }
             }
-            else if(strstr(pergunta, "palavra") != NULL){
+            else if(strstr(pergunta, "maracana") != NULL){
             printf("\n\n");
             }
             else if(strstr(pergunta, "palavra") != NULL){
@@ -478,6 +517,7 @@ int IA_tutorFutebol(char pergunta[]) {
             }
             
         }
+
         else if (strcmp(questionList(pergunta),  "qual")== 0) { 
             if(strstr(pergunta, "palavra") != NULL){
             printf("\n\n");
@@ -514,6 +554,7 @@ int IA_tutorFutebol(char pergunta[]) {
             }
             
         }
+
         else if (strcmp(questionList(pergunta), "como")== 0) { 
             if(strstr(pergunta, "palavra") != NULL){
             printf("\n\n");
@@ -550,7 +591,8 @@ int IA_tutorFutebol(char pergunta[]) {
             }
             
         }
-        else if (strcmp(questionList(pergunta), "onde")== 0) { 
+
+        else if (strcmp(questionList(pergunta), "quanto")== 0) { 
             if(strstr(pergunta, "palavra") != NULL){
             printf("\n\n");
             }
