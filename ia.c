@@ -5,30 +5,53 @@
 #include <unistd.h>//usleep()
 // #include <locale.h> para pode acemtuar.
 // Função que processa as perguntas usando uma "árvore de decisão"
-
 //comando usado pra adicionar perguntas
 //        else if (strstr(pergunta,"") != NULL)
 //        {
 //             printf("\n");
 //        }
-
-
 // Função para converter string para minúsculas
+int questionList(char *pergunta);
+int elogioList(char *pergunta);
+int xingamentosList(char *pergunta);
 
-int questionList(char *pergunta){
+// Função pra receber uma palavra e transformar characteres especiais para characteres ascII
+int IA_tutorFutebol(char pergunta[]); 
 
-    if(strstr(pergunta, "qual ") != NULL||
-    strstr(pergunta, "como") != NULL|| 
-    strstr(pergunta, "onde") != NULL || 
-    strstr(pergunta, "o ") != NULL && strstr(pergunta, "que") != NULL|| 
-    strstr(pergunta, "por") != NULL && strstr(pergunta, "que") != NULL)
+int main() {
+	setlocale(LC_ALL, "Portuguese"); // assim a acentuação fica ok no programa
+    char pergunta[100];
+    printf("Bem-vindo ao Tutor Inteligente de Futebol!\n");
+    printf("Este programa usa uma técnica de IA chamada arvores de decisões\n\n\n");
+    printf("Pergunte algo sobre futebol e seus sub-tópicos (ex.: 'time, jogador, campeonato, regras') ou digite 'sair' para encerrar:\n");
+    
+    // Loop para interação contínua
+    while (1) 
     {
-        return 1;
+        printf("\nSua pergunta: ");
+        fgets(pergunta, 100, stdin);
+
+        // Remover o caractere de nova linha
+        pergunta[strcspn(pergunta, "\n")] = '\0';
+        
+        charsensivel(pergunta);
+
+        // Verificar se o usuário quer sair
+        if (strcmp(pergunta, "sair") == 0) 
+        {
+            printf("Até mais! Vamos conversar sobre futebol novamente outro dia!\n");
+            break;
+        }
+
+        // Processar a pergunta
+        if (IA_tutorFutebol(pergunta) == 1){
+            break;
+
+        }
     }
-    else{
-        return 0;
-    }
+    return 0;
 }
+
 int elogioList(char *pergunta){
    if (strstr(pergunta, "melhor") != NULL || 
    strstr(pergunta, "bom") != NULL ||
@@ -75,7 +98,21 @@ int xingamentosList(char *pergunta){
     
 }
 
-// Função pra receber uma palavra e transformar characteres especiais para characteres ascII
+int questionList(char *pergunta){
+
+
+    if(strstr(pergunta, "qual ") != NULL||
+    strstr(pergunta, "como") != NULL|| 
+    strstr(pergunta, "onde") != NULL || 
+    strstr(pergunta, "o ") != NULL && strstr(pergunta, "que") != NULL|| 
+    strstr(pergunta, "por") != NULL && strstr(pergunta, "que") != NULL)
+    {
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
 void charsensivel(char *str) {
     char *weird[] = {"á", "à", "ä", "â","ã", "é", "è", "ë", "ê", 
                      "í", "ì", "ï", "î", "ó", "ò", "ö", "ô","õ"
@@ -119,10 +156,7 @@ void charsensivel(char *str) {
     }
 }
 
-
-     
-int IA_tutorFutebol(char pergunta[]) 
-{   
+int IA_tutorFutebol(char pergunta[]) {   
     int i,j;
     if (strstr(pergunta, "?") == NULL)
     {
@@ -357,40 +391,5 @@ int IA_tutorFutebol(char pergunta[])
         {
             printf("\nMe desculpe, ainda não reconheço esse tipo de pergunta, poderia realizar uma pergunta diferente?\n");
         }
-    return 0;
-}
-
-int main() {
-	setlocale(LC_ALL, "Portuguese"); // assim a acentuação fica ok no programa
-    char pergunta[100];
-    printf("Bem-vindo ao Tutor Inteligente de Futebol!\n");
-    printf("Este programa usa uma técnica de IA chamada arvores de decisões\n\n\n");
-    printf("Pergunte algo sobre futebol e seus sub-tópicos (ex.: 'time, jogador, campeonato, regras') ou digite 'sair' para encerrar:\n");
-    
-    // Loop para interação contínua
-    while (1) 
-    {
-        printf("\nSua pergunta: ");
-        fgets(pergunta, 100, stdin);
-
-        // Remover o caractere de nova linha
-        pergunta[strcspn(pergunta, "\n")] = '\0';
-        
-        charsensivel(pergunta);
-
-        // Verificar se o usuário quer sair
-        if (strcmp(pergunta, "sair") == 0) 
-        {
-            printf("Até mais! Vamos conversar sobre futebol novamente outro dia!\n");
-            break;
-        }
-
-        // Processar a pergunta
-        if (IA_tutorFutebol(pergunta) == 1){
-            break;
-
-        }
-    }
-
     return 0;
 }
