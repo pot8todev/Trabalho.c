@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include<stdlib.h>
 #include <string.h>
 #include <locale.h>
 #include <ctype.h> //tolower()
@@ -11,16 +12,18 @@
 //             printf("\n");
 //        }
 // Função para converter string para minúsculas
-int questionList(char *pergunta);
-int elogioList(char *pergunta);
-int xingamentosList(char *pergunta);
-
+void charsensivel(char *str);
 // Função pra receber uma palavra e transformar characteres especiais para characteres ascII
 int IA_tutorFutebol(char pergunta[]); 
 
 int main() {
 	setlocale(LC_ALL, "Portuguese"); // assim a acentuação fica ok no programa
-    char pergunta[100];
+    char *pergunta = NULL;
+    size_t buffer = 0;
+    ssize_t imputsize;
+
+
+    
     printf("Bem-vindo ao Tutor Inteligente de Futebol!\n");
     printf("Este programa usa uma técnica de IA chamada arvores de decisões\n\n\n");
     printf("Pergunte algo sobre futebol e seus sub-tópicos (ex.: 'time, jogador, campeonato, regras') ou digite 'sair' para encerrar:\n");
@@ -29,12 +32,19 @@ int main() {
     while (1) 
     {
         printf("\nSua pergunta: ");
-        fgets(pergunta, 100, stdin);
 
+        imputsize = getline(&pergunta, &buffer, stdin);
+        if (imputsize == -1) {
+            perror("Erro ao ler a entrada");
+            free(pergunta);
+            return 1;
+        }    
         // Remover o caractere de nova linha
-        pergunta[strcspn(pergunta, "\n")] = '\0';
+        if (imputsize > 0 &&  pergunta[imputsize -1 ] == '\n') {
+            pergunta[imputsize -1 ] = '\0';
+        }
+        charsensivel(pergunta);// pergunta se torna uma str sem characteres sensiveis.
         
-        charsensivel(pergunta);
 
         // Verificar se o usuário quer sair
         if (strcmp(pergunta, "sair") == 0) 
@@ -43,75 +53,67 @@ int main() {
             break;
         }
 
-        // Processar a pergunta
+        // se a ia quiser parar a conversa por algum motivo
         if (IA_tutorFutebol(pergunta) == 1){
             break;
 
         }
     }
+    free(pergunta);
     return 0;
 }
 
-int elogioList(char *pergunta){
-   if (strstr(pergunta, "melhor") != NULL || 
-   strstr(pergunta, "bom") != NULL ||
-   strstr(pergunta, "mais") != NULL ||
-   strstr(pergunta, "rico") != NULL||
-   strstr(pergunta, "habilidoso") != NULL||
-    strstr(pergunta, "foda") != NULL||
-    strstr(pergunta, "pica") != NULL||
-    strstr(pergunta, "pika") != NULL||
-   strstr(pergunta, "zinho") != NULL||
-   strstr(pergunta, "zao") != NULL|| 
-    strstr(pergunta, "inigualavel") != NULL ||
-    strstr(pergunta, "sem") != NULL && strstr(pergunta, "igual") != NULL ||
-    strstr(pergunta, "todos") != NULL&&strstr(pergunta, "os") != NULL&&strstr(pergunta, "tempos") != NULL)
-   {
-        return 1;
-   }
-   else{
-    return 0;
-   }
+int elogioList(char *pergunta){ // função esta quebrando
+    //lista de strings
+    char *elogioList[]={"melhor", "melhor", "bom", "mais", "rico", "habilidoso",
+    "foda", "pica", "pika", "zinho", "zao", "inigualavel", NULL};
+    for (int i = 0; elogioList[i] != NULL ; i++) {
+        if (strstr(pergunta, elogioList[i]) != NULL){
+            return 1;
+        }
+    }
+        return 0; // if the code reads here, than it found nothing
     
 }
 int xingamentosList(char *pergunta){
-    if (strstr(pergunta, "ruim") != NULL || 
-    strstr(pergunta, "merda") != NULL ||
-    strstr(pergunta, "menor") != NULL ||
-    strstr(pergunta, "pior") != NULL||
-    strstr(pergunta, "esquizito") != NULL||
-    strstr(pergunta, "esquizito") != NULL|| strstr(pergunta, "esquisito") != NULL||
-    strstr(pergunta, "feio") != NULL||
-    strstr(pergunta, "molenga") != NULL ||
-    strstr(pergunta, "preguiçoso") != NULL||
-    strstr(pergunta, "zinho") != NULL||
-    strstr(pergunta, "zao") != NULL|| 
-    strstr(pergunta, "bola") != NULL && strstr(pergunta, "murcha") != NULL||
+    //xingamentos compostos
+    if(strstr(pergunta, "bola") != NULL && strstr(pergunta, "murcha") != NULL||
     strstr(pergunta, "sem") != NULL && strstr(pergunta, "igual") != NULL ||
-    strstr(pergunta, "todos") != NULL && strstr(pergunta, "os") != NULL && strstr(pergunta, "tempos") != NULL)
-   {
+    strstr(pergunta, "todos") != NULL && strstr(pergunta, "os") != NULL && strstr(pergunta, "tempos") != NULL){
         return 1;
-   }
-   else{
-    return 0;
-   }
+    }
+     //lista de strings
+    
+    char *xingamentosList[]={"merda", "menor","ruim","nojento","pior", "esquizito", "feio", "molenga", "preguiçoso", "zinho", "zao","horrivel", NULL};
+    for (int i = 0; xingamentosList[i] != NULL ; i++) {
+        if (strstr(pergunta, xingamentosList[i]) != NULL){
+            return 1;
+        }
+    }
+    return 0; // if the code reads here, than it found nothing
     
 }
+   
+    
 
-int questionList(char *pergunta){
-
-
-    if(strstr(pergunta, "qual ") != NULL||
-    strstr(pergunta, "como") != NULL|| 
-    strstr(pergunta, "onde") != NULL || 
-    strstr(pergunta, "o ") != NULL && strstr(pergunta, "que") != NULL|| 
-    strstr(pergunta, "por") != NULL && strstr(pergunta, "que") != NULL)
-    {
-        return 1;
+char *questionList(char *pergunta){
+    if(strstr(pergunta, "o ") != NULL && strstr(pergunta, "que") != NULL){
+        return "o que";
     }
-    else{
-        return 0;
+    if(strstr(pergunta, "por") != NULL && strstr(pergunta, "que") != NULL) {
+        return "por que";
     }
+     //lista de strings
+    
+    char *questionlist[]={ "quando", "qual", "como", "onde",NULL};
+    for (int i = 0; questionlist[i] != NULL ; i++) {
+        if (strstr(pergunta, questionlist[i]) != NULL){
+            return questionlist[i];
+        }
+    }
+    return NULL; // if the code reads here, than it found nothing
+    
+    
 }
 void charsensivel(char *str) {
     char *weird[] = {"á", "à", "ä", "â","ã", "é", "è", "ë", "ê", 
@@ -158,42 +160,17 @@ void charsensivel(char *str) {
 
 int IA_tutorFutebol(char pergunta[]) {   
     int i,j;
-    if (strstr(pergunta, "?") == NULL)
+    if (strlen(pergunta) == 0)
     {
-       printf("Por favor, faça uma Pergunta!!"); 
-   }
-    else if (strcmp(pergunta, "") == 0)
-    {
+        
         printf("\nNao tenha medo, me pergunte o que quiser! \n");
     }
-  
-    
-    else if (strstr(pergunta, "time") != NULL)
+    else if (strstr(pergunta, "?") == NULL)
     {
-        if (strstr(pergunta, "o que é") != NULL) 
-        {
-            printf("\ntime é um conjunto de jogadores que se unem para DESTRUIR os adversários, é por isso que o flamengo é considerado o melhor time.\n");
-        }  
-        else if (strstr(pergunta, "favorito") != NULL) 
-        {
-            printf("\nMeu time favorito é o fictício Clube de Regatas Flamengo!\n");
-        } 
-        else if (strstr(pergunta, "melhor") != NULL) 
-        {
-            printf("\nO melhor time varia de acordo com o torneio. No Brasil e no Mundo é o Flamengo!\n");
-        }
-        else if (strstr(pergunta,"outro") != NULL)
-        {
-            printf("\nPra que você quer saber de outro time além do Flamengo? você não precisa disso amigo, o Flamengo supre todas suas necessidades!\n");
-        }
-        else 
-        {
-            printf("\nOs times têm 11 jogadores em campo, e o objetivo é marcar gols, experimente detalhar mais sobre algum time.\n");
-        }
-    } 
+        printf("Por favor, faça uma PERGUNTA!!"); 
+    }
     
-    else if (strstr(pergunta, "flamengo") != NULL)
-    {
+    else if (strstr(pergunta, "flamengo") != NULL) {
         if (strstr(pergunta, "o que é") != NULL) 
         {
             printf("\n Flamengo é um time de futebol, atualmente melhor e maior do RJ\n");
@@ -275,6 +252,29 @@ int IA_tutorFutebol(char pergunta[]) {
             printf("\nFundado em 1895 o Flamengo chegou ao futebol apenas em 1911, é o clube com maior número de torcedores no Brasil!");
         }
     }
+    else if (strstr(pergunta, "time") != NULL) {
+        if (strstr(pergunta, "o que é") != NULL) 
+        {
+            printf("\ntime é um conjunto de jogadores que se unem para DESTRUIR os adversários, é por isso que o flamengo é considerado o melhor time.\n");
+        }  
+        else if (strstr(pergunta, "favorito") != NULL) 
+        {
+            printf("\nMeu time favorito é o fictício Clube de Regatas Flamengo!\n");
+        } 
+        else if (strstr(pergunta, "melhor") != NULL) 
+        {
+            printf("\nO melhor time varia de acordo com o torneio. No Brasil e no Mundo é o Flamengo!\n");
+        }
+        else if (strstr(pergunta,"outro") != NULL)
+        {
+            printf("\nPra que você quer saber de outro time além do Flamengo? você não precisa disso amigo, o Flamengo supre todas suas necessidades!\n");
+        }
+        else 
+        {
+            printf("\nOs times têm 11 jogadores em campo, e o objetivo é marcar gols, experimente detalhar mais sobre algum time.\n");
+        }
+    } 
+    
     
     else if (strstr(pergunta, "jogador") != NULL) 
     {
@@ -348,7 +348,7 @@ int IA_tutorFutebol(char pergunta[]) {
         }
     } 
     
-    else if (strstr(pergunta, "regras") != NULL || questionList(pergunta) ==1) 
+    else if (strstr(pergunta, "regras") != NULL || questionList(pergunta) != NULL) 
     {
         if (strstr(pergunta, "impedimento") != NULL)
         {
