@@ -489,11 +489,35 @@ int IA_tutorFutebol(char pergunta[]) {
                 }
             }
             else if(strstr(pergunta, "maracana") != NULL){
-            printf("\n\n");
+                if (strstr(pergunta, "construido") != NULL || strstr(pergunta, "") != NULL) {
+                    
+                printf("\n 16 de junho de 1950, maracana foi construido \n");
+                }
+                
             }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
+            else if(strstr(pergunta, "flamengo") != NULL){
+                if (strstr(pergunta, "maracana") != NULL )
+                {
+                    printf("\nO Flamengo tem o Estádio José Bastos Padilha, na Gávea, onde recebia jogos contra equipes menores até a década de 1990. Desde então, passou a ser mandante no Maracanã.\n");
+                }else if (strstr(pergunta, "rival") != NULL ||  strstr(pergunta,"rivalidade")   != NULL|| strstr(pergunta,"classico")  != NULL|| strstr(pergunta," remo ") != NULL)
+                {
+                    printf("\nA história do clássico da Rivalidade começa no remo, e sporte mais popular do Rio de Janeiro no final do século XIX.[4] O primeiro confronto entre Botafogo e Flamengo, também chamado desde a década de 1960 como Clássico da Rivalidade, ocorreu em 13 de maio de 1913, no Campo da rua General Severiano, válido pelo Campeonato Carioca daquele ano. A partida terminou 1–0 para o Botafogo, gol de Mimi Sodré, na partida que inaugurou o novo campo do Botafogo.[5]\n");
+                }
+                else if (strstr(pergunta, "sequencia") != NULL )
+                {
+                    printf("\no Flamengo também alcançou marcas incríveis na Libertadores. Tricampeão da competição, o Rubro-Negro alcançou a sua maior marca de invencibilidade no torneio em 2021, quando ficou 12 jogos sem perder e chegou na final de forma invicta, onde acabou sendo derrotado pelo Palmeiras.\n ");
+                }
+                else if (strstr(pergunta, "camisa") != NULL )
+                {
+                    printf("\n O primeiro uniforme do clube carioca foi criado no ano de 1895, quando ainda só haviam atividades náuticas no quadro esportivo do Flamengo.7 de set. de 2024 \n");
+                }
+                                
+               
             }
+            else if (strstr(pergunta, "zico") != NULL )// redundancia caso perguntem do zico sem perguntar do flamengo
+                {
+                    printf("Notabilizou-se como o líder da vitoriosa trajetória do Flamengo nas décadas de 1970 e 1980, com ápice nas conquistas da Copa Libertadores da América e da Copa Intercontinental pela equipe carioca");
+                }
             else if(strstr(pergunta, "palavra") != NULL){
             printf("\n\n");
             }
