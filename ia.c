@@ -93,8 +93,8 @@ int xingamentosList(char *pergunta){
     return 0; // if the code reads here, than it found nothing
     
 }
-   
-    
+
+
 
 char *questionList(char *pergunta){
     if(strstr(pergunta, "o ") != NULL && strstr(pergunta, "que") != NULL){
@@ -158,7 +158,7 @@ void charsensivel(char *str) {
     }
 }
 
-int IA_tutorFutebol(char pergunta[]) {   
+int IA_tutorFutebol(char pergunta[]) {
     int i,j;
     if (strlen(pergunta) == 0)
     {
@@ -253,11 +253,8 @@ int IA_tutorFutebol(char pergunta[]) {
         }
     }
     else if (strstr(pergunta, "time") != NULL) {
-        if (strstr(pergunta, "o que é") != NULL) 
-        {
-            printf("\ntime é um conjunto de jogadores que se unem para DESTRUIR os adversários, é por isso que o flamengo é considerado o melhor time.\n");
-        }  
-        else if (strstr(pergunta, "favorito") != NULL) 
+
+        if (strstr(pergunta, "favorito") != NULL) 
         {
             printf("\nMeu time favorito é o fictício Clube de Regatas Flamengo!\n");
         } 
@@ -348,7 +345,7 @@ int IA_tutorFutebol(char pergunta[]) {
         }
     } 
     
-    else if (strstr(pergunta, "regras") != NULL || questionList(pergunta) != NULL) 
+    else if (strstr(pergunta, "regras") != NULL ) 
     {
         if (strstr(pergunta, "impedimento") != NULL)
         {
@@ -382,14 +379,288 @@ int IA_tutorFutebol(char pergunta[]) {
         {
             printf("\nVAR é a sigla para Video Assistant Referee, que em português significa árbitro assistente de vídeo. É um sistema que ajuda o árbitro central a tomar decisões em lances duvidosos, através de imagens fornecidas por câmeras posicionadas no estádio.\n");
         }
-        else 
+        else if (strstr(pergunta, "futebol") != NULL)
         {
             printf("\nUma partida de Futebol é dividida em 2 tempos de 45 minutos mais acréscimos, formada por 11 jogadores para cada lado, seu objetivo é marcar mais gols que a equipe adversária.\n");
         }
     }
+        
+    else if(questionList(pergunta) != NULL){
+        if(strcmp(questionList(pergunta), "o que") == 0){
+            if(strstr(pergunta, "bola") != NULL){
+                printf(" um objeto esférico, necessário para que as partidas de futebol aconteçam");
+            } else if(strstr(pergunta, "jogador") != NULL){
+            printf("\nprofissional pago para esta em campo e marcar o maximo de gols possível\n");
+            } else if(strstr(pergunta, "gol") != NULL){
+                printf("\ngol é o ponto do futebol e tambem o nome da area defendida pelo goleiro.Quando uma bola nao é defendida pelo goleiro e passa pela linha demarcada gol, um ponto de gol é contado\n");
+            } else if(strstr(pergunta, "goleiro") != NULL){
+                printf("\n jogador responsavel por defender a area do gol de pontos adiversários\n");
+            }else if(strstr(pergunta, "trave") != NULL){
+                printf("\n o aro de ferro que delimita o limite do gol\n");
+            }else if(strstr(pergunta, "chuteira") != NULL){
+                printf("\n tenis específico para a prática de futebol\n");
+            }else if (strstr(pergunta, "time") != NULL) {
+            printf("\ntime é um conjunto de jogadores que se unem para DESTRUIR os adversários, é por isso que o flamengo é considerado o melhor time.\n");
+            }  else if(strstr(pergunta, "campo") != NULL){
+            printf("\ncampo é a área em que o jogo de futebol acontece\n");
+            }else if(strstr(pergunta, "torcida") != NULL){
+            printf("\nconjunto de pessoas que observam o jogo, onde desejam ativamente pelo sucesso de um deles especifico, e a destruição completa dos adiversários\n");
+            }
+            else if(strstr(pergunta, "zagueiro central") != NULL){
+            printf("\nFica no centro da defesa, tentando impedir que os atacantes adversários marquem gols. Trabalha junto com o outro zagueiro para proteger a área do goleiro.\n");
+        }else if(strstr(pergunta, "lateral direito") != NULL){
+            printf("\n\n");
+        }else if(strstr(pergunta, "zagueiro lateral") != NULL){
+            printf("\nSimilar aos laterais, mas com funções de defesa mais centradas. São mais comuns em esquemas táticos específicos, como no futebol de linha de 3 zagueiros.\n");
+        }else if(strstr(pergunta, "lateral") != NULL){
+            printf("\nFicam nas laterais da defesa, defendendo as investidas do time adversário pelas linhas laterais do campo. Eles também podem apoiar o ataque, cruzando bolas para a área.\n");
+        }else if(strstr(pergunta, "volante") != NULL){
+            printf("\n\n");
+        }else if(strstr(pergunta, "campista") != NULL || strstr(pergunta, "organizador") != NULL) {
+            printf("\n Controla o meio-campo, distribuindo passes e criando jogadas ofensivas. Eles têm boa visão de jogo e fazem a transição entre defesa e ataque. \n");
+        }else if(strstr(pergunta, "armador") != NULL){
+            printf("\nFica mais perto do ataque e tem a função de criar jogadas ofensivas, com passes que desorganizam a defesa adversária e geram oportunidades de gol.\n");
+        }else if(strstr(pergunta, "ponta") != NULL){
+            printf("\nJoga nas laterais do ataque, utilizando a velocidade para correr ao longo da linha e cruzar para a área ou cortar para o centro e finalizar a gol.\n");
+        }else if(strstr(pergunta, "centroavante") != NULL || (strstr(pergunta, "pivo") != NULL)){
+            printf("\nA principal função é marcar gols. Fica na posição central no ataque e tenta finalizar as jogadas criadas pelos meio-campistas ou laterais. É o jogador mais focado no ataque.\n");
+        }else if(strstr(pergunta, "palavra") != NULL){
+            printf("\nFica mais próximo do centroavante, mas com liberdade para se movimentar e criar jogadas ofensivas. Pode ajudar a distribuir passes ou concluir jogadas.\n");
+        }else if(strstr(pergunta, "") != NULL){
+            printf("\n\n");
+        }else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+        }else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+        }else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+        }
+        }
+        else if (strcmp(questionList(pergunta), "quando")){
+                if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            
+        }
+        else if (strcmp(questionList(pergunta),  "qual")== 0) { 
+            if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            
+        }
+        else if (strcmp(questionList(pergunta), "como")== 0) { 
+            if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            
+        }
+        else if (strcmp(questionList(pergunta), "onde")== 0) { 
+            if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            } 
+        
+        else if (strcmp(questionList(pergunta) , "o que") == 0) { 
+        if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            
+        }else if (strcmp(questionList(pergunta) , "por que") == 0) { 
+            if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            
+            }
         else
         {
             printf("\nMe desculpe, ainda não reconheço esse tipo de pergunta, poderia realizar uma pergunta diferente?\n");
+        }
         }
     return 0;
 }
