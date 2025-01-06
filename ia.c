@@ -98,6 +98,7 @@ int xingamentosList(char *pergunta){
 
 char *questionList(char *pergunta){
     if(strstr(pergunta, "o ") != NULL && strstr(pergunta, "que") != NULL){
+        printf("\neu retornei\n");
         return "o que";
     }
     if(strstr(pergunta, "por") != NULL && strstr(pergunta, "que") != NULL) {
@@ -109,11 +110,11 @@ char *questionList(char *pergunta){
     for (int i = 0; questionList[i] != NULL ; i++) {
         if (strstr(pergunta, questionList[i]) != NULL){
             //algumas redundancias do plural
-            if ( strcmp(questionList[i], "qual") == 0 || strcmp(questionList[i], "qual") == 0) {  
+            if ( strcmp(questionList[i], "qual") == 0 || strcmp(questionList[i], "quais") == 0) {  
                 return "qual"; 
             }
             if ( strcmp(questionList[i], "quanto") == 0 || strcmp(questionList[i], "quantos") == 0) {  
-                return "quantos"; 
+                return "quanto"; 
             }
             
             return questionList[i];
@@ -178,7 +179,7 @@ int IA_tutorFutebol(char pergunta[]) {
         printf("Por favor, faça uma PERGUNTA!!"); 
     }
     else if(questionList(pergunta) != NULL){
-        if(strcmp(questionList(pergunta), "o que") == 0){ //completo
+        if(strcmp(questionList(pergunta), "o que") == 0){ //completo nathan helped
             if(strstr(pergunta, "bola") != NULL){
             printf(" um objeto esférico, necessário para que as partidas de futebol aconteçam");
             } else if(strstr(pergunta, "jogador") != NULL){
@@ -216,19 +217,53 @@ int IA_tutorFutebol(char pergunta[]) {
                 printf("\nJoga nas laterais do ataque, utilizando a velocidade para correr ao longo da linha e cruzar para a área ou cortar para o centro e finalizar a gol.\n");
             }else if(strstr(pergunta, "centroavante") != NULL || (strstr(pergunta, "pivo") != NULL)){
                 printf("\nA principal função é marcar gols. Fica na posição central no ataque e tenta finalizar as jogadas criadas pelos meio-campistas ou laterais. É o jogador mais focado no ataque.\n");
-
-                printf("\n\n");
+            }
+            else if(strstr(pergunta, "mais") != NULL && strstr(pergunta, "populares") != NULL){
+                printf("\nSua fama do passado e presente, somado também com seus ídolos e a cultura dos torcedores de passarem o time que amam para as seguintes gerações\n ");
+            }
+            else if (strstr(pergunta, "conquistar") != NULL  && strstr(pergunta, "titulos") != NULL){
+                printf("\nSua gestão a longo prazo e desempenho fora do esperado, foi o que ajudou o Flamengo a conquistar tantos títulos\n");
+            }
+            else if (strstr(pergunta, "diferencia") != NULL  && strstr(pergunta, "outros") != NULL){
+            printf("\nO Flamengo possui uma das histórias mais emblemáticas dos clubes brasileiros, é um clube de muita tradição, possuinte da maior torcida do Brasil \n");
+            }
+            else if (strstr(pergunta, "torcida") != NULL  && strstr(pergunta, "representa") != NULL){
+            printf("\nA torcida do Flamengo é a alma do clube, é ela que sustenta a receita do clube e da motivação ao Flamengo a continuar sendo o que ele é atualmente.\n");
+            }
+            else if (strstr(pergunta, "investir") != NULL  && strstr(pergunta, "base") != NULL){
+                printf("\nO Flamengo possui uma das melhores estruturas no Brasil para formação de novos jogadores, não só no Rio de Janeiro mas em todos os Estados \n");
+                }
+            else if (strstr(pergunta, "melhorar") != NULL){
+                printf("\nPara melhorar o Flamengo ainda percorre um caminho abstrato para desenvolver essa resposta, porém conseguimos perceber que com o trabalho do clube de ano podemos serguir com o feedback e fe dos torcedores!\n");
+                }
+            else if (strstr(pergunta, "torcida") != NULL  && strstr(pergunta, "fora") != NULL){
+                printf("\nAcredito que o mesmo que a torcida para dentro do Rio de Janeiro, o sentimento rubro-negro atravessa distâncias e atinge ao coração de todos igualmente.\n");
+                }
+            else if (strstr(pergunta, "Maracana") != NULL  && strstr(pergunta, "Especial") != NULL){
+                printf("\nToda a história já construída no Maracanã não pode ser reposta em outro estádio, esse carinho emblemático da torcida e do clube vai se manter até o fim\n");
+                }
+            else if (strstr(pergunta, "jogadores") != NULL  && strstr(pergunta, "fas") != NULL){
+                printf("\nCreio que a personificação e intimidade de fãs com membros do clube é inevitável, não só com jogadores mas com toda a equipe, seja por memórias especiais ou por conhecimento pessoal mesmo nossa tocida é a alma do flamengo\n");
+                }
+            else if (strstr(pergunta, "planeja") != NULL  && strstr(pergunta, "futuro") != NULL){
+                printf("\nSão muitas coisas, seja planejamentos de temporada ou sonhos distantes, o Flamengo não deixa de ser um clube que se projeta para o amanhã\n");
+                }
+            else if(strstr(pergunta, "libertadores") != NULL){
+                printf("\nA Copa Libertadores da América é a principal competição entre clubes da América Latina\n");
+                } 
+            else if(strstr(pergunta, "flamengo") != NULL){
+                if(strstr(pergunta, "libertadores") != NULL){
+                printf("\n Nos últimos anos, o Flamengo se estabeleceu como um dos principais times da América. Desde 2019, a equipe carioca conquistou dois títulos da Copa Libertadores  \n");
+                }
+            } 
             
-            }
         }
-        else if (strcmp(questionList(pergunta), "quando")){ //completo
-                if(strstr(pergunta, "regatas") != NULL){
-            printf("\n Fundado no bairro do Flamengo[nota 1] para disputas do esporte remo em 17 de novembro de 1895,[2][11] tornou-se um dos clubes mais bem-sucedidos e populares do esporte brasileiro\n");
+
+        else if (strcmp(questionList(pergunta), "quando") == 0){ //completo
+            if(strstr(pergunta, "regatas") != NULL){
+                printf("\n Fundado no bairro do Flamengo[nota 1] para disputas do esporte remo em 17 de novembro de 1895,[2][11] tornou-se um dos clubes mais bem-sucedidos e populares do esporte brasileiro\n");
             }
-            else if(strstr(pergunta, "titulo") != NULL){
-            printf("\n o Flamengo é, por decisão judicial, e em seguida, pela Confederação Brasileira de Futebol (CBF), oficialmente detentor de sete títulos do Campeonato Brasileiro  \n");
-            }
-            else if(strstr(pergunta, "titulo") != NULL){
+            else if(strstr(pergunta, "titulo") != NULL || strstr(pergunta,"campeao") != NULL){
                 if (strstr(pergunta, "primeiro") != NULL)
                 {
                     printf("oficialmente, flamengo conseguiu seu primeiro título em 1980");
@@ -253,6 +288,9 @@ int IA_tutorFutebol(char pergunta[]) {
                 {
                     printf("oficialmente, flamengo conseguiu seu primeiro título em 2020");
                 }
+                else{
+                    printf("\n o Flamengo é, por decisão judicial, e em seguida, pela Confederação Brasileira de Futebol (CBF), oficialmente detentor de sete títulos do Campeonato Brasileiro  \n");
+                }
             
             }
             else if(strstr(pergunta, "libertadores") != NULL ){
@@ -264,7 +302,7 @@ int IA_tutorFutebol(char pergunta[]) {
                 }
             }
             else if(strstr(pergunta, "maracana") != NULL){
-                if (strstr(pergunta, "construido") != NULL || strstr(pergunta, "") != NULL) {
+                if (strstr(pergunta, "construido") != NULL){
                 printf("\n 16 de junho de 1950, maracana foi construido \n");
                 }
                 else if(strstr(pergunta,"reformado") != NULL || strstr(pergunta,"reinaugurado") != NULL){
@@ -280,7 +318,7 @@ int IA_tutorFutebol(char pergunta[]) {
                     printf("\nO Flamengo tem o Estádio José Bastos Padilha, na Gávea, onde recebia jogos contra equipes menores até a década de 1990. Desde então, passou a ser mandante no Maracanã.\n");
                 }else if (strstr(pergunta, "rival") != NULL ||  strstr(pergunta,"rivalidade")   != NULL|| strstr(pergunta,"classico")  != NULL|| strstr(pergunta," remo ") != NULL)
                 {
-                    printf("\nA história do clássico da Rivalidade começa no remo, e sporte mais popular do Rio de Janeiro no final do século XIX.[4] O primeiro confronto entre Botafogo e Flamengo, também chamado desde a década de 1960 como Clássico da Rivalidade, ocorreu em 13 de maio de 1913, no Campo da rua General Severiano, válido pelo Campeonato Carioca daquele ano. A partida terminou 1–0 para o Botafogo, gol de Mimi Sodré, na partida que inaugurou o novo campo do Botafogo.[5]\n");
+                    printf("\nA história do clássico da Rivalidade com o botafogo começa no remo, e sporte mais popular do Rio de Janeiro no final do século XIX.[4] O primeiro confronto entre Botafogo e Flamengo, também chamado desde a década de 1960 como Clássico da Rivalidade, ocorreu em 13 de maio de 1913, no Campo da rua General Severiano, válido pelo Campeonato Carioca daquele ano. A partida terminou 1–0 para o Botafogo, gol de Mimi Sodré, na partida que inaugurou o novo campo do Botafogo.[5]\n");
                 }
                 else if (strstr(pergunta, "sequencia") != NULL )
                 {
@@ -303,93 +341,26 @@ int IA_tutorFutebol(char pergunta[]) {
                 {
                     printf("Notabilizou-se como o líder da vitoriosa trajetória do Flamengo nas décadas de 1970 e 1980, com ápice nas conquistas da Copa Libertadores da América e da Copa Intercontinental pela equipe carioca");
                 }
+            else{
+                printf("desculpe, eu entendo partes da sua pergunta mas nao ela completa, poderia tentar refrasear?");
+            }
         }
 
-        else if (strcmp(questionList(pergunta),  "qual")== 0) { //nathan
-            if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            
-        }
-
-        else if (strcmp(questionList(pergunta), "como")== 0) { //nathan
-            if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            
-        }
-
-        else if (strcmp(questionList(pergunta), "quanto")== 0) { 
+        else if (strcmp(questionList(pergunta), "quanto") == 0) { 
             if(strstr(pergunta, "titulo") != NULL){
             printf("\nAo longo de sua história, o Rubro-Negro levantou mais de 100 troféus\n");
             }
-            else if(strstr(pergunta, "maior") != NULL && strstr(pergunta,"gol") != NULL){
+            else if(strstr(pergunta,"placar") != NULL || strstr(pergunta,"gol") != NULL && strstr(pergunta, "maior") != NULL){
             printf("\n no classico o maior numero de gols numa mesma partida foi: Flamengo 6 x 1 Vasco - 02/06/2024. para o flamengo e Vasco 7 x 0 Flamengo - 26/04/1931 contra o flamengo \n");
             }
             else if(strstr(pergunta, "flamengo") != NULL){
                 
                 if (strstr(pergunta,"final") != NULL)
                 {
+                    if (strstr(pergunta,"placar") != NULL)
+                    {
+                        printf("O título. O Flamengo tem um título do Mundial. Em 1981, a equipe comandada por Zico derrotou o Liverpool por 3 a 0 no Japão");
+                    }
                     
                     if (strstr(pergunta,"primeira") != NULL)
                     {
@@ -414,115 +385,196 @@ int IA_tutorFutebol(char pergunta[]) {
                     }
                     else{
                         printf("\nRubro-Negro fez a última partida da competição como visitante nas edições de 1990, 2003, 2017 e 2022. \n");
-
                     }
                 }
                 
+                else if(strstr(pergunta, "copa") != NULL){
+                printf("\nCom relação aos clubes que mais revelaram jogadores que foram convocados para a Seleção Brasileira em uma Copa do Mundo, a liderança é do Flamengo, com 37 convocações de 26 jogadores\n");
+                }
                 else if(strstr(pergunta, "gol") != NULL){
                 printf("\nna história do futebol brasileiro: Flamengo: 13.001.\n");
                 }
+                else if(strstr(pergunta, "gol") != NULL){
+                printf("\nna história do futebol brasileiro: Flamengo: 13.001.\n");
+                }
+                else if(strstr(pergunta, "gol") != NULL){
+                printf("\nna história do futebol brasileiro: Flamengo: 13.001.\n");
+                }
+                else if(strstr(pergunta, "tempo") != NULL){
+                printf("Cada partida de futebol tem dois tempos de 45 minutos, salvo acordo anterior ao contrário.");
+                } 
+                else if(strstr(pergunta, "minutos") != NULL){
+                printf("Cada partida de futebol tem dois tempos de 45 minutos, salvo acordo anterior ao contrário.");
+                }
+                else if(strstr(pergunta, "times") != NULL){
+                printf("\n  \nCom relação aos clubes que mais revelaram jogadores que foram convocados para a Seleção Brasileira em uma Copa do Mundo, a liderança é do Flamengo, com 37 convocações de 26 jogadores\n\n");
+                }
+                else if(strstr(pergunta, "cart") != NULL){
+                printf("Art. 29º - Para cada serie de três cartões amarelos o atleta cumprirá suspensão de uma partida automática.");
+                }
+                else if(strstr(pergunta, "arbitro") != NULL){
+                printf("\nUma partida de futebol conta com a presença de quatro árbitros\n");
+                }
+                else if(strstr(pergunta, "subtitui") != NULL){
+                printf("\n quantidade de substituições subiu de três para cinco, podendo haver até três paradas enquanto o jogo estiver com bola rolando\n");
+                }
+                
+
             }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
+
             } 
         
-        else if (strcmp(questionList(pergunta) , "o que") == 0) { //nathan
-        if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
+        else if (strcmp(questionList(pergunta), "como") != 0) {//nathan 
+            if (strstr(pergunta, "tornou") != NULL  && strstr(pergunta, "maior") != NULL){
+            printf("\nNo cenário de torcida, o Flamengo se tornou um dos maiores clubes com a chegada das rádios que no passado tiveram muita influência para o aumento de público do clube, para coroar nessa época teve a chegada da chamada Década de Ouro com o elenco de ídolos como Zico, Junior e Companhia. No cenário financeiro, a gestão ecônomica do ex-presidente de clube Eduardo Bandeira de Mello, trouxe a segurança financeira que o clube necessitava para comportar um clube de elite.\n");
             }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
+            else if(strstr(pergunta, "trajetória") != NULL){
+            printf("\nA trajetória do Flamengo não só nesse ano mas nos ultimos anos parece como um sonho para a maioria dos torcedores, em um espaço de uma década o clube foi capaz de arrecadar receitas bilionárias e títulos que antes eram vistos como milagres, no geral, por mais que exista oscilação em temporadas como qualquer outro clube, a trajetória do Flamengo hoje está em um patamar completamente diferente dos das ultimas 2 décadas.\n");
             }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
+            else if (strstr(pergunta, "influencia") != NULL  && strstr(pergunta, "cultura") != NULL){
+                printf("\nHoje o Flamengo praticamente faz parte do dia a dia do carioca, seja conversar com amigos, planejar uma idã ao maracanã, um churrasco de fim de semana, feiras, eventos, sonhos na infância de jovens de todas as classes sociais, não existe mais Flamengo sem Rio de Janeiro e não existe mais Rio de Janeiro sem Flamengo.\n");
+                }
+            else if (strstr(pergunta, "administra") != NULL  && strstr(pergunta, "torcedores") != NULL){
+            printf("\nSatisfazer a maior torcida do Brasil não é fácil e o Flamengo não mede esforços para isso, com parcerias, sócio-torcedor, e filiais em todos os estados, o Flamengo tenta mitigar a distância do torcedor de outro estado da melhor forma possível, garantindo a transmissão dos seus jogos importantes na televisão aberta e buscando sempre a compra do mando de campo de adversários dispostos a cede-lo para garantir a torcida fora do Rio de Janeiro uma experiência emblemática de ver o Flamengo jogar.\n");
             }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
+            else if (strstr(pergunta, "conquistas") != NULL  && strstr(pergunta, "impactaram") != NULL){
+            printf("\nO impacto do flamengo com suas conquistas recentes não só mudou o patamar do clube mas também forçou outros clubes a responderem a altura, movimentando de forma nunca antes vista o mercado financeiro do futebol brasileiro.\n");
             }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
+            else if (strstr(pergunta, "estilo") != NULL  && strstr(pergunta, "jogo") != NULL){
+                printf("\nDescrevendo o estilo de jogo do Flamengo atualmente, o time se mantém na base do elenco de 2019 de Jorge Jesus, forçando o adversário ao erro com um jogo de pressão intensa e com a posse sempre buscando com a criatividade dos seus jogadores expremer ao máximo de suas habilidades para buscar os gols.\n");
             }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
+            else if (strstr(pergunta, "planeja") != NULL  && strstr(pergunta, "futur") != NULL){
+                printf("\nO Flamengo atual atingiu um patamar sólido e de alto rendimento, acredito que seus planos seja a manutenção disso constanstemente sem perder eficiência, visando aprimoramentos ao longo do caminho.\n");
             }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
+            else if (strstr(pergunta, "rivalidades") != NULL){
+                printf("\nAs rivalidades quando não abordadas com cenas de violência, trazem um ambiente empolgante e comunitário dentre todo os torcedores, as brincadeiras pós-jogo a emoção durante a partida, tudo isso molda um sentimento apaixonante inexplicável ao futebol.\n");
             }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
+            else if (strstr(pergunta, "prepara") != NULL  && strstr(pergunta, "internacional") != NULL){
+                printf("\nA preparação internacional do Flamengo é pensada muito antes do jogo de fato, logística de viagem, descanso dos jogadores, consequências na saúde física do jogador, tudo isso é pensado da melhor forma em prol do Flamengo ter a melhor performance possível alinhada com os resultados desejados no momento pelo clube.\n");
             }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
+            else if (strstr(pergunta, "torcida") != NULL  && strstr(pergunta, "contribue") != NULL){
+                printf("\nA torcida do Flamengo é a alma do clube, é ela que sustenta a receita do clube e da motivação ao Flamengo a continuar sendo o que ele é atualmente.\n");
             }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
+        } 
+
+        else if (strcmp(questionList(pergunta) , "por que") == 0) {
+           // Verifica se a pergunta começa com "por que"
+if (strcmp(questionList(pergunta), "por que") == 0) {
             
+            /** 
+             * Verifica se a pergunta fala sobre "torcida". 
+             * Exemplo: "Por que a torcida do Flamengo é considerada a maior do Brasil?"
+             */
+            if (strstr(pergunta, "torcida") != NULL) {
+                printf("Porque o Flamengo tem milhões de torcedores espalhados por todo o Brasil, sendo o clube com a maior torcida do país.");
+            } 
+            /** 
+             * Verifica se a pergunta fala sobre "títulos". 
+             * Exemplo: "Por que o Flamengo é um dos clubes com mais títulos no Brasil?"
+             */
+            else if (strstr(pergunta, "títulos") != NULL) {
+                printf("\nPorque o Flamengo conquistou diversos títulos nacionais e internacionais, incluindo várias edições do Campeonato Brasileiro e da Copa Libertadores. sem contar ser o melhor!\n");
+            } 
+            /** 
+             * Verifica se a pergunta fala sobre "Maracanã". 
+             * Exemplo: "Por que o Flamengo joga tantas partidas no Maracanã?"
+             */
+            else if (strstr(pergunta, "Maracanã") != NULL) {
+                printf("\nPorque o Maracanã é o estádio mais icônico do Rio de Janeiro e serve como casa histórica para o Flamengo.\n");
+            } 
+            /** 
+             * Verifica se a pergunta fala sobre "Libertadores". 
+             * Exemplo: "Por que a conquista da Libertadores de 2019 foi tão especial para o Flamengo?"
+             */
+            else if (strstr(pergunta, "Libertadores") != NULL) {
+                printf("\nPorque marcou o retorno do Flamengo ao topo do futebol sul-americano após 38 anos, com uma vitória emocionante sobre o River Plate.\n");
+            } 
+            /** 
+             * Verifica se a pergunta fala sobre "rivalidade". 
+             * Exemplo: "Por que o Flamengo tem tanta rivalidade com o Vasco da Gama?"
+             */
+            else if (strstr(pergunta, "rivalidade") != NULL) {
+                printf("\nPorque os dois clubes são grandes forças do futebol carioca e disputam clássicos históricos e emocionantes.\n");
+            } 
+            /** 
+             * Verifica se a pergunta fala sobre "técnico". 
+             * Exemplo: "Por que o técnico Jorge Jesus é tão lembrado pela torcida do Flamengo?"
+             */
+            else if (strstr(pergunta, "técnico") != NULL) {
+                printf("\nPorque Jorge Jesus liderou o Flamengo em 2019, conquistando títulos importantes como a Libertadores e o Brasileirão com um estilo de jogo marcante.\n");
+            } 
+            /** 
+             * Verifica se a pergunta fala sobre "gols". 
+             * Exemplo: "Por que o Flamengo é conhecido por marcar muitos gols em decisões importantes?"
+             */
+            else if (strstr(pergunta, "gols") != NULL) {
+                printf("\nPorque o Flamengo sempre contou com grandes atacantes e equipes ofensivas que se destacam em momentos decisivos.\n");
+            } 
+            /** 
+             * Verifica se a pergunta fala sobre "patrimônio". 
+             * Exemplo: "Por que o Flamengo é considerado um patrimônio cultural do Rio de Janeiro?"
+             */
+            else if (strstr(pergunta, "patrimônio") != NULL) {
+                printf("\nPorque o Flamengo é mais do que um clube de futebol, sendo parte da identidade cultural e histórica do Rio de Janeiro.\n");
+            } 
+            /** 
+             * Verifica se a pergunta fala sobre "tradição". 
+             * Exemplo: "Por que o Flamengo é visto como um dos clubes mais tradicionais do Brasil?"
+             */
+            else if (strstr(pergunta, "tradição") != NULL) {
+                printf("\nPorque o Flamengo tem mais de um século de história, com grandes conquistas e uma base de torcedores apaixonada.\n");
+            } 
+            /** 
+             * Verifica se a pergunta fala sobre "ídolos". 
+             * Exemplo: "Por que jogadores como Zico e Gabigol são considerados ídolos do Flamengo?"
+             */
+            else if (strstr(pergunta, "ídolos") != NULL) {
+                printf("\nPorque marcaram épocas importantes do clube, com Zico sendo o maior ídolo da história e Gabigol decisivo nas conquistas recentes.\n");
+            }
+    }
+ 
         }
-        
-        else if (strcmp(questionList(pergunta) , "por que") == 0) { 
-            if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
+        else if (strcmp(questionList(pergunta) , "qual") == 0) { 
+            if(strstr(pergunta, "principal") != NULL && strstr(pergunta, "desafio") != NULL){
+                printf("\nManter a constância e o patamar atual do clube todos os anos.\n");
             }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            
-            }
+                else if (strstr(pergunta, "momento") != NULL  && strstr(pergunta, "marcante") != NULL){
+                    printf("\nÉ impossível definir o momento mais marcante do Flamengo, mas creio que atualmente mundos acreditam que a virada na libertadores de 2019 com 2 gols de Gabigol\n");
+                }
+                else if (strstr(pergunta, "jogador") != NULL  && strstr(pergunta, "iconico") != NULL){
+                    printf("\nO Flamengo tem muitos ícones, creio que os mais icônicos sejam, Zico, Gabigol e Júnior.\n");
+                }
+                else if (strstr(pergunta, "importancia") != NULL  && strstr(pergunta, "carioca") != NULL){
+                    printf("\nO Flamengo é o clube que gera a maior visibilidade ao futebol carioca, sem ele o estado teria uma lacuna muito grande que nenhum outro time poderia supriran");
+                }
+                else if (strstr(pergunta, "titulo") != NULL  && strstr(pergunta, "importante") != NULL){
+                    printf("\nCreio que os títulos mais importantes sejam o Mundial de 1981, e a Libertadores de 2019\n");
+                }
+                else if (strstr(pergunta, "tecnico") != NULL  && strstr(pergunta, "papel") != NULL){
+                    printf("\nNão só dentro de campo, o técnico tem um dos papéis mais relevantes ao clube, administrar o dia a dia e garantir uma performance de alto nível são seus papeis principais e mais conhecidos\n");
+                }
+                else if (strstr(pergunta, "impacto") != NULL  && strstr(pergunta, "conquistas") != NULL){
+                    printf("\nFinanceiramente falando o Flamengo conseguir atingir suas metas de colocações, não só é bom para a história do clube, mas garante o cumprimento da receita\n");
+                }
+                else if (strstr(pergunta, "novos") != NULL  && strstr(pergunta, "jogadores") != NULL){
+                    printf("\nA relevância do Flamengo na criação de novos jogadores não é só para o país mas sim para o mundo do futebol como um todo, hoje o maior jogador Brasileiro é aquele que consegue ser popular o fuciente para gerar uma nova geração de craque inspirados por ele\n");
+                }
+                else if (strstr(pergunta, "estrategia") != NULL  && strstr(pergunta, "internacional") != NULL){
+                    printf("\nSabemos que quando se trata de outros países o nível das competições pode tanto aumentar quanto diminuir, o Flamengo busca investir diversas vezes no mercado internacional\n");
+                }
+                else if (strstr(pergunta, "torcida") != NULL  && strstr(pergunta, "gestao") != NULL){
+                    printf("\nA relação da torcida com a gestão muita das vezes oscila, quando algum jogador influente comenta negativamente sobre a gestão muita das vezes a torcida toma o lado dele, o que poe pressao sobre a gerencia para mudar mesmo medidas razoaveis, portanto temos que tomar muito cuidado com a maneira que a gestao é percebida pelo time, numeros nao sao tudo !\n");
+                }
+                else{
+                    printf("\ndesculpe eu nao reconheço esta pergunta tente refrasea-la\n");
+                }
+        }
         else
         {
             printf("\nMe desculpe, ainda não reconheço esse tipo de pergunta, poderia realizar uma pergunta diferente?\n");
         }
-        }
+    }
+
     else if (strstr(pergunta, "flamengo") != NULL) {
         if (strstr(pergunta, "o que é") != NULL) 
         {

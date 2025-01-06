@@ -1,0 +1,84 @@
+// Verifica se a pergunta começa com "por que"
+if (strcmp(questionList(pergunta), "por que") == 0) {
+    
+    /** 
+     * Verifica se a pergunta fala sobre "torcida". 
+     * Exemplo: "Por que a torcida do Flamengo é considerada a maior do 
+Brasil?"
+     */
+    if (strstr(pergunta, "torcida") != NULL) {
+        printf(""); // Preencha com a resposta apropriada.
+    } 
+    /** 
+     * Verifica se a pergunta fala sobre "títulos". 
+     * Exemplo: "Por que o Flamengo é um dos clubes com mais títulos no 
+Brasil?"
+     */
+    else if (strstr(pergunta, "títulos") != NULL) {
+        printf(""); 
+    } 
+    /** 
+     * Verifica se a pergunta fala sobre "Maracanã". 
+     * Exemplo: "Por que o Flamengo joga tantas partidas no Maracanã?"
+     */
+    else if (strstr(pergunta, "Maracanã") != NULL) {
+        printf(""); 
+    } 
+    /** 
+     * Verifica se a pergunta fala sobre "Libertadores". 
+     * Exemplo: "Por que a conquista da Libertadores de 2019 foi tão 
+especial para o Flamengo?"
+     */
+    else if (strstr(pergunta, "Libertadores") != NULL) {
+        printf(""); 
+    } 
+    /** 
+     * Verifica se a pergunta fala sobre "rivalidade". 
+     * Exemplo: "Por que o Flamengo tem tanta rivalidade com o Vasco da 
+Gama?"
+     */
+    else if (strstr(pergunta, "rivalidade") != NULL) {
+        printf(""); 
+    } 
+    /** 
+     * Verifica se a pergunta fala sobre "técnico". 
+     * Exemplo: "Por que o técnico Jorge Jesus é tão lembrado pela torcida 
+do Flamengo?"
+     */
+    else if (strstr(pergunta, "técnico") != NULL) {
+        printf(""); 
+    } 
+    /** 
+     * Verifica se a pergunta fala sobre "gols". 
+     * Exemplo: "Por que o Flamengo é conhecido por marcar muitos gols em 
+decisões importantes?"
+     */
+    else if (strstr(pergunta, "gols") != NULL) {
+        printf(""); 
+    } 
+    /** 
+     * Verifica se a pergunta fala sobre "patrimônio". 
+     * Exemplo: "Por que o Flamengo é considerado um patrimônio cultural 
+do Rio de Janeiro?"
+     */
+    else if (strstr(pergunta, "patrimônio") != NULL) {
+        printf(""); 
+    } 
+    /** 
+     * Verifica se a pergunta fala sobre "tradição". 
+     * Exemplo: "Por que o Flamengo é visto como um dos clubes mais 
+tradicionais do Brasil?"
+     */
+    else if (strstr(pergunta, "tradição") != NULL) {
+        printf(""); 
+    } 
+    /** 
+     * Verifica se a pergunta fala sobre "ídolos". 
+     * Exemplo: "Por que jogadores como Zico e Gabigol são considerados 
+ídolos do Flamengo?"
+     */
+    else if (strstr(pergunta, "ídolos") != NULL) {
+        printf(""); 
+    }
+}
+
