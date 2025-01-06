@@ -2,3 +2,9 @@ test.c
 test
 a.out
 fopenTest
+gpt.c
+gpt.txt
+gpt.txt.save
+gpt2.txt
+pot2.c
+txt.c
