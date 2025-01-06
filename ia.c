@@ -177,7 +177,352 @@ int IA_tutorFutebol(char pergunta[]) {
     {
         printf("Por favor, faça uma PERGUNTA!!"); 
     }
-    
+    else if(questionList(pergunta) != NULL){
+        if(strcmp(questionList(pergunta), "o que") == 0){ //completo
+            if(strstr(pergunta, "bola") != NULL){
+            printf(" um objeto esférico, necessário para que as partidas de futebol aconteçam");
+            } else if(strstr(pergunta, "jogador") != NULL){
+            printf("\nprofissional pago para esta em campo e marcar o maximo de gols possível\n");
+            } else if(strstr(pergunta, "gol") != NULL){
+                printf("\ngol é o ponto do futebol e tambem o nome da area defendida pelo goleiro.Quando uma bola nao é defendida pelo goleiro e passa pela linha demarcada gol, um ponto de gol é contado\n");
+            } else if(strstr(pergunta, "goleiro") != NULL){
+                printf("\n jogador responsavel por defender a area do gol de pontos adiversários\n");
+            }else if(strstr(pergunta, "trave") != NULL){
+                printf("\n o aro de ferro que delimita o limite do gol\n");
+            }else if(strstr(pergunta, "chuteira") != NULL){
+                printf("\n tenis específico para a prática de futebol\n");
+            }else if (strstr(pergunta, "time") != NULL) {
+            printf("\ntime é um conjunto de jogadores que se unem para DESTRUIR os adversários, é por isso que o flamengo é considerado o melhor time.\n");
+            }  else if(strstr(pergunta, "campo") != NULL){
+            printf("\ncampo é a área em que o jogo de futebol acontece\n");
+            }else if(strstr(pergunta, "torcida") != NULL){
+            printf("\nconjunto de pessoas que observam o jogo, onde desejam ativamente pelo sucesso de um deles especifico, e a destruição completa dos adiversários\n");
+            }
+            else if(strstr(pergunta, "zagueiro central") != NULL){
+        printf("\nFica no centro da defesa, tentando impedir que os atacantes adversários marquem gols. Trabalha junto com o outro zagueiro para proteger a área do goleiro.\n");
+            }else if(strstr(pergunta, "lateral direito") != NULL){
+                printf("\n\n");
+            }else if(strstr(pergunta, "zagueiro lateral") != NULL){
+                printf("\nSimilar aos laterais, mas com funções de defesa mais centradas. São mais comuns em esquemas táticos específicos, como no futebol de linha de 3 zagueiros.\n");
+            }else if(strstr(pergunta, "lateral") != NULL){
+                printf("\nFicam nas laterais da defesa, defendendo as investidas do time adversário pelas linhas laterais do campo. Eles também podem apoiar o ataque, cruzando bolas para a área.\n");
+            }else if(strstr(pergunta, "volante") != NULL){
+                printf("\n\n");
+            }else if(strstr(pergunta, "campista") != NULL || strstr(pergunta, "organizador") != NULL) {
+                printf("\n Controla o meio-campo, distribuindo passes e criando jogadas ofensivas. Eles têm boa visão de jogo e fazem a transição entre defesa e ataque. \n");
+            }else if(strstr(pergunta, "armador") != NULL){
+                printf("\nFica mais perto do ataque e tem a função de criar jogadas ofensivas, com passes que desorganizam a defesa adversária e geram oportunidades de gol.\n");
+            }else if(strstr(pergunta, "ponta") != NULL){
+                printf("\nJoga nas laterais do ataque, utilizando a velocidade para correr ao longo da linha e cruzar para a área ou cortar para o centro e finalizar a gol.\n");
+            }else if(strstr(pergunta, "centroavante") != NULL || (strstr(pergunta, "pivo") != NULL)){
+                printf("\nA principal função é marcar gols. Fica na posição central no ataque e tenta finalizar as jogadas criadas pelos meio-campistas ou laterais. É o jogador mais focado no ataque.\n");
+
+                printf("\n\n");
+            
+            }
+        }
+        else if (strcmp(questionList(pergunta), "quando")){ //completo
+                if(strstr(pergunta, "regatas") != NULL){
+            printf("\n Fundado no bairro do Flamengo[nota 1] para disputas do esporte remo em 17 de novembro de 1895,[2][11] tornou-se um dos clubes mais bem-sucedidos e populares do esporte brasileiro\n");
+            }
+            else if(strstr(pergunta, "titulo") != NULL){
+            printf("\n o Flamengo é, por decisão judicial, e em seguida, pela Confederação Brasileira de Futebol (CBF), oficialmente detentor de sete títulos do Campeonato Brasileiro  \n");
+            }
+            else if(strstr(pergunta, "titulo") != NULL){
+                if (strstr(pergunta, "primeiro") != NULL)
+                {
+                    printf("oficialmente, flamengo conseguiu seu primeiro título em 1980");
+                }else if (strstr(pergunta, "segundo") != NULL)
+                {
+                    
+                    printf("oficialmente, flamengo conseguiu seu primeiro título em 1982");
+
+                }else if (strstr(pergunta, "terceiro") != NULL)
+                {
+                    printf("oficialmente, flamengo conseguiu seu primeiro título em 1983");
+                } else if (strstr(pergunta, "quarto") != NULL)
+                {
+                    printf("oficialmente, flamengo conseguiu seu primeiro título em 1992");
+                } else if (strstr(pergunta, "quinto") != NULL)
+                {
+                    printf("oficialmente, flamengo conseguiu seu primeiro título em 2009");
+                }else if (strstr(pergunta, "sexto") != NULL)
+                {
+                    printf("oficialmente, flamengo conseguiu seu primeiro título em 2019");
+                }else if (strstr(pergunta, "setimo") != NULL || strstr(pergunta, "ultimo") != NULL )
+                {
+                    printf("oficialmente, flamengo conseguiu seu primeiro título em 2020");
+                }
+            
+            }
+            else if(strstr(pergunta, "libertadores") != NULL ){
+                printf("\nA primeira aconteceu em 1981 sob o comando de Zico, o maior ídolo do clube. Em Montevidéu\n");
+                if (strstr(pergunta, "ultima") != NULL|| strstr(pergunta, "segunda") != NULL)
+                {
+                    printf("\n a ultima vez que flamengo ganhou a libertadores foi em 2019\n");
+                    
+                }
+            }
+            else if(strstr(pergunta, "maracana") != NULL){
+                if (strstr(pergunta, "construido") != NULL || strstr(pergunta, "") != NULL) {
+                printf("\n 16 de junho de 1950, maracana foi construido \n");
+                }
+                else if(strstr(pergunta,"reformado") != NULL || strstr(pergunta,"reinaugurado") != NULL){
+                    printf("O novo Maracanã foi reinaugurado, no dia 27 de abril de 2013, com a capacidade para cerca de 78 mil torcedores e um custo de reforma, aproximadamente, R$ 1,05 bilhão.");
+                }
+                else if(strstr(pergunta," copa ") != NULL){
+                    printf("O novo Maracanã foi reinaugurado, no dia 27 de abril de 2013, com a capacidade para cerca de 78 mil torcedores e um custo de reforma, aproximadamente, R$ 1,05 bilhão.");
+                }
+            }
+            else if(strstr(pergunta, "flamengo") != NULL){
+                if (strstr(pergunta, "maracana") != NULL )
+                {
+                    printf("\nO Flamengo tem o Estádio José Bastos Padilha, na Gávea, onde recebia jogos contra equipes menores até a década de 1990. Desde então, passou a ser mandante no Maracanã.\n");
+                }else if (strstr(pergunta, "rival") != NULL ||  strstr(pergunta,"rivalidade")   != NULL|| strstr(pergunta,"classico")  != NULL|| strstr(pergunta," remo ") != NULL)
+                {
+                    printf("\nA história do clássico da Rivalidade começa no remo, e sporte mais popular do Rio de Janeiro no final do século XIX.[4] O primeiro confronto entre Botafogo e Flamengo, também chamado desde a década de 1960 como Clássico da Rivalidade, ocorreu em 13 de maio de 1913, no Campo da rua General Severiano, válido pelo Campeonato Carioca daquele ano. A partida terminou 1–0 para o Botafogo, gol de Mimi Sodré, na partida que inaugurou o novo campo do Botafogo.[5]\n");
+                }
+                else if (strstr(pergunta, "sequencia") != NULL )
+                {
+                    printf("\no Flamengo também alcançou marcas incríveis na Libertadores. Tricampeão da competição, o Rubro-Negro alcançou a sua maior marca de invencibilidade no torneio em 2021, quando ficou 12 jogos sem perder e chegou na final de forma invicta, onde acabou sendo derrotado pelo Palmeiras.\n ");
+                }
+                else if (strstr(pergunta, "camisa") != NULL )
+                {
+                    printf("\n O primeiro uniforme do clube carioca foi criado no ano de 1895, quando ainda só haviam atividades náuticas no quadro esportivo do Flamengo.7 de set. de 2024 \n");
+                }
+                else if (strstr(pergunta, "primei") != NULL ){
+                    if (strstr(pergunta,"partida") != NULL){
+                        printf("Em 3 de maio de 1912 acontece a primeira partida do Flamengo: uma grande vitória de 15 x 2 sobre o Mangueira");
+                    }
+                    else if(strstr(pergunta,"resultado") != NULL){
+                        printf("vitória de 15 x 2 sobre o Mangueira");
+                    }
+                }
+            }
+            else if (strstr(pergunta, "zico") != NULL )// redundancia caso perguntem do zico sem perguntar do flamengo
+                {
+                    printf("Notabilizou-se como o líder da vitoriosa trajetória do Flamengo nas décadas de 1970 e 1980, com ápice nas conquistas da Copa Libertadores da América e da Copa Intercontinental pela equipe carioca");
+                }
+        }
+
+        else if (strcmp(questionList(pergunta),  "qual")== 0) { //nathan
+            if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            
+        }
+
+        else if (strcmp(questionList(pergunta), "como")== 0) { //nathan
+            if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            
+        }
+
+        else if (strcmp(questionList(pergunta), "quanto")== 0) { 
+            if(strstr(pergunta, "titulo") != NULL){
+            printf("\nAo longo de sua história, o Rubro-Negro levantou mais de 100 troféus\n");
+            }
+            else if(strstr(pergunta, "maior") != NULL && strstr(pergunta,"gol") != NULL){
+            printf("\n no classico o maior numero de gols numa mesma partida foi: Flamengo 6 x 1 Vasco - 02/06/2024. para o flamengo e Vasco 7 x 0 Flamengo - 26/04/1931 contra o flamengo \n");
+            }
+            else if(strstr(pergunta, "flamengo") != NULL){
+                
+                if (strstr(pergunta,"final") != NULL)
+                {
+                    
+                    if (strstr(pergunta,"primeira") != NULL)
+                    {
+                        printf("\nRubro-Negro fez a última partida da competição como visitante nas edições de 1990\n");
+                    }
+                    
+                    else if (strstr(pergunta,"segunda") != NULL)
+                    {
+                        printf("\nRubro-Negro fez a última partida da competição como visitante nas edições de 2003\n");
+                    }
+                    else if (strstr(pergunta,"terceira") != NULL)
+                    {
+                        printf("\nRubro-Negro fez a última partida da competição como visitante nas edições de 2017\n");
+                    }
+                    else if (strstr(pergunta,"quarta") != NULL)
+                    {
+                        printf("\nRubro-Negro fez a última partida da competição como visitante nas edições de 2022\n");
+                    }
+                    else if (strstr(pergunta,"ultima") != NULL)
+                    {
+                        printf("\nRubro-Negro fez a última partida da competição como visitante nas edições de 2022\n");
+                    }
+                    else{
+                        printf("\nRubro-Negro fez a última partida da competição como visitante nas edições de 1990, 2003, 2017 e 2022. \n");
+
+                    }
+                }
+                
+                else if(strstr(pergunta, "gol") != NULL){
+                printf("\nna história do futebol brasileiro: Flamengo: 13.001.\n");
+                }
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            } 
+        
+        else if (strcmp(questionList(pergunta) , "o que") == 0) { //nathan
+        if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            
+        }
+        
+        else if (strcmp(questionList(pergunta) , "por que") == 0) { 
+            if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            else if(strstr(pergunta, "palavra") != NULL){
+            printf("\n\n");
+            }
+            
+            }
+        else
+        {
+            printf("\nMe desculpe, ainda não reconheço esse tipo de pergunta, poderia realizar uma pergunta diferente?\n");
+        }
+        }
     else if (strstr(pergunta, "flamengo") != NULL) {
         if (strstr(pergunta, "o que é") != NULL) 
         {
@@ -392,341 +737,5 @@ int IA_tutorFutebol(char pergunta[]) {
             printf("\nUma partida de Futebol é dividida em 2 tempos de 45 minutos mais acréscimos, formada por 11 jogadores para cada lado, seu objetivo é marcar mais gols que a equipe adversária.\n");
         }
     }
-        
-    else if(questionList(pergunta) != NULL){
-        if(strcmp(questionList(pergunta), "o que") == 0){
-            if(strstr(pergunta, "bola") != NULL){
-            printf(" um objeto esférico, necessário para que as partidas de futebol aconteçam");
-            } else if(strstr(pergunta, "jogador") != NULL){
-            printf("\nprofissional pago para esta em campo e marcar o maximo de gols possível\n");
-            } else if(strstr(pergunta, "gol") != NULL){
-                printf("\ngol é o ponto do futebol e tambem o nome da area defendida pelo goleiro.Quando uma bola nao é defendida pelo goleiro e passa pela linha demarcada gol, um ponto de gol é contado\n");
-            } else if(strstr(pergunta, "goleiro") != NULL){
-                printf("\n jogador responsavel por defender a area do gol de pontos adiversários\n");
-            }else if(strstr(pergunta, "trave") != NULL){
-                printf("\n o aro de ferro que delimita o limite do gol\n");
-            }else if(strstr(pergunta, "chuteira") != NULL){
-                printf("\n tenis específico para a prática de futebol\n");
-            }else if (strstr(pergunta, "time") != NULL) {
-            printf("\ntime é um conjunto de jogadores que se unem para DESTRUIR os adversários, é por isso que o flamengo é considerado o melhor time.\n");
-            }  else if(strstr(pergunta, "campo") != NULL){
-            printf("\ncampo é a área em que o jogo de futebol acontece\n");
-            }else if(strstr(pergunta, "torcida") != NULL){
-            printf("\nconjunto de pessoas que observam o jogo, onde desejam ativamente pelo sucesso de um deles especifico, e a destruição completa dos adiversários\n");
-            }
-            else if(strstr(pergunta, "zagueiro central") != NULL){
-        printf("\nFica no centro da defesa, tentando impedir que os atacantes adversários marquem gols. Trabalha junto com o outro zagueiro para proteger a área do goleiro.\n");
-            }else if(strstr(pergunta, "lateral direito") != NULL){
-                printf("\n\n");
-            }else if(strstr(pergunta, "zagueiro lateral") != NULL){
-                printf("\nSimilar aos laterais, mas com funções de defesa mais centradas. São mais comuns em esquemas táticos específicos, como no futebol de linha de 3 zagueiros.\n");
-            }else if(strstr(pergunta, "lateral") != NULL){
-                printf("\nFicam nas laterais da defesa, defendendo as investidas do time adversário pelas linhas laterais do campo. Eles também podem apoiar o ataque, cruzando bolas para a área.\n");
-            }else if(strstr(pergunta, "volante") != NULL){
-                printf("\n\n");
-            }else if(strstr(pergunta, "campista") != NULL || strstr(pergunta, "organizador") != NULL) {
-                printf("\n Controla o meio-campo, distribuindo passes e criando jogadas ofensivas. Eles têm boa visão de jogo e fazem a transição entre defesa e ataque. \n");
-            }else if(strstr(pergunta, "armador") != NULL){
-                printf("\nFica mais perto do ataque e tem a função de criar jogadas ofensivas, com passes que desorganizam a defesa adversária e geram oportunidades de gol.\n");
-            }else if(strstr(pergunta, "ponta") != NULL){
-                printf("\nJoga nas laterais do ataque, utilizando a velocidade para correr ao longo da linha e cruzar para a área ou cortar para o centro e finalizar a gol.\n");
-            }else if(strstr(pergunta, "centroavante") != NULL || (strstr(pergunta, "pivo") != NULL)){
-                printf("\nA principal função é marcar gols. Fica na posição central no ataque e tenta finalizar as jogadas criadas pelos meio-campistas ou laterais. É o jogador mais focado no ataque.\n");
-            }else if(strstr(pergunta, "palavra") != NULL){
-                printf("\nFica mais próximo do centroavante, mas com liberdade para se movimentar e criar jogadas ofensivas. Pode ajudar a distribuir passes ou concluir jogadas.\n");
-            }else if(strstr(pergunta, "") != NULL){
-                printf("\n\n");
-            }else if(strstr(pergunta, "palavra") != NULL){
-                printf("\n\n");
-            }else if(strstr(pergunta, "palavra") != NULL){
-                printf("\n\n");
-            }else if(strstr(pergunta, "palavra") != NULL){
-                printf("\n\n");
-            
-            }
-        }
-        else if (strcmp(questionList(pergunta), "quando")){
-                if(strstr(pergunta, "regatas") != NULL){
-            printf("\n Fundado no bairro do Flamengo[nota 1] para disputas do esporte remo em 17 de novembro de 1895,[2][11] tornou-se um dos clubes mais bem-sucedidos e populares do esporte brasileiro\n");
-            }
-            else if(strstr(pergunta, "titulo") != NULL){
-            printf("\n o Flamengo é, por decisão judicial, e em seguida, pela Confederação Brasileira de Futebol (CBF), oficialmente detentor de sete títulos do Campeonato Brasileiro  \n");
-            }
-            else if(strstr(pergunta, "titulo") != NULL){
-                if (strstr(pergunta, "primeiro") != NULL)
-                {
-                    printf("oficialmente, flamengo conseguiu seu primeiro título em 1980");
-                }if (strstr(pergunta, "segundo") != NULL)
-                {
-                    
-                    printf("oficialmente, flamengo conseguiu seu primeiro título em 1982");
-
-                }if (strstr(pergunta, "terceiro") != NULL)
-                {
-                    printf("oficialmente, flamengo conseguiu seu primeiro título em 1983");
-                }if (strstr(pergunta, "quarto") != NULL)
-                {
-                    printf("oficialmente, flamengo conseguiu seu primeiro título em 1992");
-                }if (strstr(pergunta, "quinto") != NULL)
-                {
-                    printf("oficialmente, flamengo conseguiu seu primeiro título em 2009");
-                }if (strstr(pergunta, "sexto") != NULL)
-                {
-                    printf("oficialmente, flamengo conseguiu seu primeiro título em 2019");
-                }if (strstr(pergunta, "setmo") != NULL || strstr(pergunta, "ultimo") != NULL )
-                {
-                    printf("oficialmente, flamengo conseguiu seu primeiro título em 2020");
-                }
-            
-            printf("\n \n");
-            }
-            else if(strstr(pergunta, "libertadores") != NULL ){
-                printf("\nA primeira aconteceu em 1981 sob o comando de Zico, o maior ídolo do clube. Em Montevidéu\n");
-                if (strstr(pergunta, "ultima") != NULL|| strstr(pergunta, "segunda") != NULL)
-                {
-                    printf("\n a ultima vez que flamengo ganhou a libertadores foi em 2019\n");
-                    
-                }
-            }
-            else if(strstr(pergunta, "maracana") != NULL){
-                if (strstr(pergunta, "construido") != NULL || strstr(pergunta, "") != NULL) {
-                    
-                printf("\n 16 de junho de 1950, maracana foi construido \n");
-                }
-                
-            }
-            else if(strstr(pergunta, "flamengo") != NULL){
-                if (strstr(pergunta, "maracana") != NULL )
-                {
-                    printf("\nO Flamengo tem o Estádio José Bastos Padilha, na Gávea, onde recebia jogos contra equipes menores até a década de 1990. Desde então, passou a ser mandante no Maracanã.\n");
-                }else if (strstr(pergunta, "rival") != NULL ||  strstr(pergunta,"rivalidade")   != NULL|| strstr(pergunta,"classico")  != NULL|| strstr(pergunta," remo ") != NULL)
-                {
-                    printf("\nA história do clássico da Rivalidade começa no remo, e sporte mais popular do Rio de Janeiro no final do século XIX.[4] O primeiro confronto entre Botafogo e Flamengo, também chamado desde a década de 1960 como Clássico da Rivalidade, ocorreu em 13 de maio de 1913, no Campo da rua General Severiano, válido pelo Campeonato Carioca daquele ano. A partida terminou 1–0 para o Botafogo, gol de Mimi Sodré, na partida que inaugurou o novo campo do Botafogo.[5]\n");
-                }
-                else if (strstr(pergunta, "sequencia") != NULL )
-                {
-                    printf("\no Flamengo também alcançou marcas incríveis na Libertadores. Tricampeão da competição, o Rubro-Negro alcançou a sua maior marca de invencibilidade no torneio em 2021, quando ficou 12 jogos sem perder e chegou na final de forma invicta, onde acabou sendo derrotado pelo Palmeiras.\n ");
-                }
-                else if (strstr(pergunta, "camisa") != NULL )
-                {
-                    printf("\n O primeiro uniforme do clube carioca foi criado no ano de 1895, quando ainda só haviam atividades náuticas no quadro esportivo do Flamengo.7 de set. de 2024 \n");
-                }
-                                
-               
-            }
-            else if (strstr(pergunta, "zico") != NULL )// redundancia caso perguntem do zico sem perguntar do flamengo
-                {
-                    printf("Notabilizou-se como o líder da vitoriosa trajetória do Flamengo nas décadas de 1970 e 1980, com ápice nas conquistas da Copa Libertadores da América e da Copa Intercontinental pela equipe carioca");
-                }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            
-        }
-
-        else if (strcmp(questionList(pergunta),  "qual")== 0) { 
-            if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            
-        }
-
-        else if (strcmp(questionList(pergunta), "como")== 0) { 
-            if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            
-        }
-
-        else if (strcmp(questionList(pergunta), "quanto")== 0) { 
-            if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            } 
-        
-        else if (strcmp(questionList(pergunta) , "o que") == 0) { 
-        if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            
-        }else if (strcmp(questionList(pergunta) , "por que") == 0) { 
-            if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            else if(strstr(pergunta, "palavra") != NULL){
-            printf("\n\n");
-            }
-            
-            }
-        else
-        {
-            printf("\nMe desculpe, ainda não reconheço esse tipo de pergunta, poderia realizar uma pergunta diferente?\n");
-        }
-        }
     return 0;
 }
