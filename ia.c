@@ -98,7 +98,6 @@ int xingamentosList(char *pergunta){
 
 char *questionList(char *pergunta){
     if(strstr(pergunta, "o ") != NULL && strstr(pergunta, "que") != NULL){
-        printf("\neu retornei\n");
         return "o que";
     }
     if(strstr(pergunta, "por") != NULL && strstr(pergunta, "que") != NULL) {
@@ -749,7 +748,7 @@ if (strcmp(questionList(pergunta), "por que") == 0) {
             printf("\nExistem muitos campeonatos no futebol, desde locais até internacionais, experimente perguntar sobre algum em especifico.\n");
         }
     } 
-    
+   
     else if (strstr(pergunta, "regras") != NULL ) 
     {
         if (strstr(pergunta, "impedimento") != NULL)
@@ -783,11 +782,36 @@ if (strcmp(questionList(pergunta), "por que") == 0) {
         else if (strstr(pergunta, "var") != NULL)
         {
             printf("\nVAR é a sigla para Video Assistant Referee, que em português significa árbitro assistente de vídeo. É um sistema que ajuda o árbitro central a tomar decisões em lances duvidosos, através de imagens fornecidas por câmeras posicionadas no estádio.\n");
-        }
-        else if (strstr(pergunta, "futebol") != NULL)
-        {
-            printf("\nUma partida de Futebol é dividida em 2 tempos de 45 minutos mais acréscimos, formada por 11 jogadores para cada lado, seu objetivo é marcar mais gols que a equipe adversária.\n");
+
+        else if (strstr(pergunta, "futebol") !=)
+
+            printf("oi eu sou goku ");
         }
     }
+        else if (strstr(pergunta, "falta") != )
+        {
+            printf("foi uma vez flamengo");
+        }
+        else if (strstr(pergunta, "falta") != NULL)
+        
+            printf("\nNo futebol, uma falta é uma infração das regras do jogo, marcada pelo árbitro quando um jogador comete uma irregularidade. As faltas podem ser cometidas de forma proposital ou não, e podem ser cometidas por qualquer jogador em campo, incluindo o goleiro.\n");
+        }
+        else if (strstr(pergunta, "falta") != NULL)
+        {
+            printf("\nNo futebol, uma falta é uma infração das regras do jogo, marcada pelo árbitro quando um jogador comete uma irregularidade. As faltas podem ser cometidas de forma proposital ou não, e podem ser cometidas por qualquer jogador em campo, incluindo o goleiro.\n");
+        }
+        else if (strstr(pergunta, "falta") != NULL)
+        {
+            printf("\nNo futebol, uma falta é uma infração das regras do jogo, marcada pelo árbitro quando um jogador comete uma irregularidade. As faltas podem ser cometidas de forma proposital ou não, e podem ser cometidas por qualquer jogador em campo, incluindo o goleiro.\n");
+        }
+        else if (strstr(pergunta, "falta") != NULL)
+        {
+            printf("\nNo futebol, uma falta é uma infração das regras do jogo, marcada pelo árbitro quando um jogador comete uma irregularidade. As faltas podem ser cometidas de forma proposital ou não, e podem ser cometidas por qualquer jogador em campo, incluindo o goleiro.\n");
+        }
+        else if (strstr(pergunta, "falta") != NULL)
+        {
+            printf("\nNo futebol, uma falta é uma infração das regras do jogo, marcada pelo árbitro quando um jogador comete uma irregularidade. As faltas podem ser cometidas de forma proposital ou não, e podem ser cometidas por qualquer jogador em campo, incluindo o goleiro.\n");
+        }
+
     return 0;
 }
